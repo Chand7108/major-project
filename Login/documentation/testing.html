@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automated Testing - Vanguard - Advanced PHP Login and User Management</title>
+    <meta name="author" content="Milos Stojanovic">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/docs.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/vanguard-logo.png" alt="Vanguard" height="50">
+                </a>
+            </div>
+
+            <div class="sidebar-toggle pull-right">
+                <a href="javascript:;" id="sidebar-toggle" class="btn btn-default">☰</a>
+            </div>
+
+            <a class="btn btn-custom pull-right"
+               target="_blank"
+               href="http://codecanyon.net/item/vanguard-advanced-php-login-and-user-management/14521866?ref=loshMiS">
+                <span class="glyphicon glyphicon-download-alt"></span>
+                Download
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="sidebar">
+            <ul>
+<li>Setup
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="development-mode.html">Development Mode</a></li>
+<li><a href="upgrade-guide.html">Upgrade Guide</a></li>
+</ul></li>
+<li>Usage
+<ul>
+<li><a href="authentication.html">Authentication &amp; Registration</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="profile.html">User Profile</a></li>
+<li><a href="users.html">User Management</a></li>
+<li><a href="sessions.html">Session Management</a></li>
+<li><a href="activity-log.html">Activity Log</a></li>
+<li><a href="roles-and-permissions.html">Roles and Permissions</a></li>
+<li><a href="settings.html">Settings</a></li>
+<li><a href="api/index.html">Developer API</a></li>
+</ul></li>
+<li>Testing
+<ul>
+<li><a href="testing.html">Vanguard Automated Tests</a></li>
+</ul></li>
+<li>Cookbook
+<ul>
+<li><a href="customizing-stylesheets.html">Customizing Stylesheets</a></li>
+<li><a href="working-with-permissions.html">Working with Vanguard Permissions</a></li>
+<li><a href="existing-website.html">Using Vanguard for Existing Website</a></li>
+<li><a href="registration-form.html">Extending Registration Form</a></li>
+<li><a href="new-page.html">Creating New Page</a></li>
+<li><a href="adding-social-auth-provider.html">Adding Social Auth Provider</a></li>
+</ul></li>
+<li>Need More Help?
+<ul>
+<li><a href="faq.html">FAQ</a></li>
+</ul></li>
+</ul>
+        </section>
+        <article>
+            <div class="alert alert-warning" id="online-docs-warning" style="display: none;">
+                <strong>Attention!</strong> It's recommended to always use the
+                <a target="_blank" href="https://docs.vanguardapp.io/">online documentation</a>
+                since it is the most up to date version and it may have some sections updated or added
+                in the meantime.
+            </div>
+            <h1>Automated Testing</h1>
+<ul>
+<li><a href="#automated-testing">Automated Testing</a>
+<ul>
+<li><a href="#preparation">Preparation</a></li>
+<li><a href="#running-tests">Running Tests</a></li>
+</ul></li>
+</ul>
+<hr />
+<p><a name="automated-testing"></a></p>
+<h2>Automated Testing</h2>
+<p>Vanguard comes with more than <strong>two hundred</strong> automated test. Most of them are functional tests that are using to verify all vital parts of Vanguard application, but there are also unit tests for some parts of the system. If you want to, you can run those automated tests by following steps below and use them as starting point and continue adding tests for everything you change inside the application.</p>
+<p><a name="preparation"></a></p>
+<h3>Preparation</h3>
+<p>Since Vanguard is using <a href="https://mailtrap.io/">Mailtrap</a> for testing emails that should be sent to the users, you will have to sign up for Mailtrap (it's free) and put your API key into <code>.env</code> file as following.</p>
+<pre><code class="language-php">MAILTRAP_SECRET=your_mailtrap_secret_key</code></pre>
+<p>Also, you have to tell Laravel that what credentials should be used for sending emails by adding following variables into your <code>.env</code> file:</p>
+<pre><code class="language-php">MAIL_HOST=mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=mailtrap_username
+MAIL_PASSWORD=mailtrap_password
+MAIL_ENCRYPTION=null</code></pre>
+<p><a name="running-tests"></a></p>
+<h3>Running Tests</h3>
+<p>After you insert required Mailtrap credentials, you are ready to start your tests just by typing </p>
+<pre><code class="language-php">phpunit</code></pre>
+<p>PHP unit will then execute your tests and you will be sure that your application is working as you expect.</p>
+<p>Vanguard is fully tested and working on PHP 5.6.4+ (including PHP 7).</p>
+<p><img src="assets/img/testing-php-full.png" alt="Vanguard - Automated Tests - PHP" /></p>
+<h3>Different Databases</h3>
+<p>By default, Vanguard is configured to use SQLite in Memory database to perform tests. However, if you would like to test it on some other databases like MySQL,
+then you will have to modify <code>DB_CONNECTION</code> environment variable inside <code>phpunit.xml</code> file and set it to <code>mysql</code> (or you can just completely remove it, since MySQL driver is default)
+and you have to add the name for test database by defining <code>DB_DATABASE</code> variable like following:</p>
+<pre><code class="language-xml">&lt;php&gt;
+    &lt;env name="APP_ENV" value="testing"/&gt;
+    &lt;env name="CACHE_DRIVER" value="array"/&gt;
+    &lt;env name="SESSION_DRIVER" value="array"/&gt;
+    &lt;env name="QUEUE_DRIVER" value="sync"/&gt;
+    &lt;env name="DB_CONNECTION" value="mysql"/&gt; &lt;!-- database connection --&gt;
+    &lt;env name="DB_DATABASE" value="vanguard_test"/&gt; &lt;!-- test db name --&gt;
+    &lt;env name="MAIL_DRIVER" value="smtp"/&gt;
+&lt;/php&gt;</code></pre>
+<p>You can modify any other environment variables here if necessary.</p>
+        </article>
+
+        <script src="assets/js/docs.min.js"></script>
+    </div>
+</body>
+</html>

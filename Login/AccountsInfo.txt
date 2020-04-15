@@ -1,0 +1,43 @@
+<pre>Ganache CLI v6.9.1 (ganache-core: 2.10.2)
+
+Available Accounts
+==================
+(0) 0x521B6cE3C955614f6FEeE8710571fB07A6d3b6aC (100 ETH)
+(1) 0x9c0eAE553989D71e9FF08578Bd751C8bcFB0b486 (100 ETH)
+(2) 0xa4d0B83debFe7D09cA45Ff45308a68C8D77e002B (100 ETH)
+(3) 0xa9821693334c9002f86DCb28F66F33f55f35D40A (100 ETH)
+(4) 0x4cb09B9A9F98b41cf415382d2274eaBA359b11D4 (100 ETH)
+(5) 0xDB18db70492a22268690d55F346a1FA743746104 (100 ETH)
+(6) 0x63E4CDCc782Ce7fD51143bB8060FD81b1Af72D00 (100 ETH)
+(7) 0xA89d0E67939b17C53100B34b49155A119466BBFC (100 ETH)
+
+Private Keys
+==================
+(0) 0xba12eaa23fa80dc360b000207eacfe0b7ac6a0f3123d9de0874b933927edea81
+(1) 0x007f3eb78067967878b13fb04d4c3f751329e8c6403ab31f6edd38e37284e8d1
+(2) 0x998b3a72d15fcfb7d3eedbd6a98e382724e5cd18487c593d76b7f2245087204a
+(3) 0xc7e6ec46b6b756c0e013e79fd9e74c0f0ef467e4db04782f19dea042ddf4d2b5
+(4) 0x6f6b2b32ffc4bbc0a93943e5809b94c39db21c8579c29fb7c7f69dc4d6dab8e4
+(5) 0xb17fc7a6325561e221fe3f090a8819ca6a010f167cca44c0da4ae11962f2247b
+(6) 0x34dee0463130f830df80944deddb28c29d64474d59bd30766a842bc634e00287
+(7) 0x4dba20ad9715dc3c093463b1dc61f944825e94c40ba01280705113b9310c1108
+
+HD Wallet
+==================
+Mnemonic:      multiply mango meat save route swallow alien neither jelly cost token grass
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Gas Price
+==================
+20000000000
+
+Gas Limit
+==================
+6721975
+
+Call Gas Limit
+==================
+9007199254740991
+
+Listening on 127.0.0.1:8545
+</pre>
